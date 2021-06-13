@@ -1,0 +1,5 @@
+void UART_Send(void)
+{
+	while((UART7_FR_R & 0x0020) != 0) {}; // WHILE TRANSMITER FIFO FULL WAITS
+	 UART7_DR_R = 1  ;
+}

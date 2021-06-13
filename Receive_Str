@@ -1,0 +1,7 @@
+void Receive_Str(char* z) // function to get the array from the GPS
+{
+	 int i ;
+	for (i = 0; i < 75; i ++)
+	{
+		z[i] = 	UART_Read() ;
+	}

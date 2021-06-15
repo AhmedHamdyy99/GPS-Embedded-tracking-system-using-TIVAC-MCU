@@ -1,18 +1,18 @@
 void uart_Init(void)
 	{
 		
-	SYSCTL_RCGCUART_R=0X80;                                                                       //ENABLE UART CLOCK
-	    SYSCTL_RCGCGPIO_R|=0X10;                                                                 //ENABLE PORT CLOCK
+	    SYSCTL_RCGCUART_R=0X80;                                                                   // ACTIVATE UART7
+	    SYSCTL_RCGCGPIO_R|=0X10;                                                                 //ACTIVATE PORT E
 	    while ((SYSCTL_PRGPIO_R&0x10) == 0){};                                                  // CHECK CLOCK FLAG
 	    UART7_CTL_R &=~ (0X00000001);                                                          // DISABLE UART 
-	    UART7_IBRD_R =104;                                                                    //MODIFY BAUD RATE =9600 
-	    UART7_FBRD_R =11;                                                                    //ENABLE FIFO , 
-	    UART7_LCRH_R =0x00000070;                                                           // SEND 8 BITS
+	    UART7_IBRD_R =104;                                                                    //MODIFY BAUD RATE =9600, [16M/(16*9600)]=104.16666667 
+	    UART7_FBRD_R =11;                                                                    //0.1666667*64=11
+	    UART7_LCRH_R =0x00000070;                                                           // WIDTH= 8 BITS-NO PARITY-ONE STOP-FIFOS
 	    GPIO_PORTE_AFSEL_R|=0X03;                                                          //ENABLE AFSEL
 	    GPIO_PORTE_DEN_R|=0X03;                                                           //ENABLE DIGITAL BINS
 	    GPIO_PORTE_PCTL_R|=(GPIO_PORTE_PCTL_R&0XFFFFFF00)+0X00000011;                    //MAKE PE0 RECIEVER AND PE1 TRANSMITTER
 	    GPIO_PORTE_AMSEL_R &=~0x03;                                                     //DISABLE ANALOG 
-	    UART7_CTL_R |=0x00000301;                                                      //ENABLE UART
+	    UART7_CTL_R |=0X00000001;                                                      //ENABLE UART
 		
 	}
 

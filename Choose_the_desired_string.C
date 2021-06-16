@@ -6,7 +6,7 @@ int check(char* z) // FUNCTION TO TAKE THE DESIRED STRING SENT FROM GPS (STARTS 
 	{
 		chk[i] = z[i] ;
 	}
-	if (!(strcmp(chk ,"$GPRMC"))) //COMPARES THE RECIEVED 6 CHRS IF THEY ARE WHAT WE WANT OR NO
+	if (!(strcmp(chk ,"$GPRMC"))) //COMPARES THE RECIEVED 6 CHRS 
 	{ return 0 ;}
 	else
 	{return 1 ;}

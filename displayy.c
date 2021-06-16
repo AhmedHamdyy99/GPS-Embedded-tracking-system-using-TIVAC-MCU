@@ -32,8 +32,13 @@ void displayNumberOnSevenSegment(int number)
 
  void displayNumber(int number){
 /* extract each digit */
-while (number != 0)
-{
+if(number==0){
+		 GPIO_PORTD_DATA_R=0x03;
+		     	displayNumberOnSevenSegment(0);
+	 }else if(number !=0){
+	 
+	 
+
     d1 = number % 10;
     number /= 10;
     d2 = number % 10;

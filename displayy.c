@@ -43,8 +43,8 @@ if(number==0){
     number /= 10;
     d2 = number % 10;
         number /= 10;
-        d3 = number % 10;
-            number /= 10;
+        d3 = number;
+      
 }
 
     while(1)//if you need to make the bonus change true 
